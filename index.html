@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jurema Azevedo | Luxo e Exclusividade</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --preto: #000000;
+            --dourado: #D4AF37;
+            --dourado-claro: #F1D592;
+            --branco: #ffffff;
+        }
+
+        body {
+            background-color: var(--preto);
+            color: var(--branco);
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            scroll-behavior: smooth;
+        }
+
+        /* NAVBAR */
+        nav {
+            background-color: rgba(0, 0, 0, 0.9);
+            border-bottom: 1px solid var(--dourado);
+            padding: 15px 5%;
+            position: fixed;
+            width: 90%;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img { height: 80px; }
+
+        .nav-links a {
+            color: var(--dourado);
+            text-decoration: none;
+            margin-left: 25px;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            font-weight: 600;
+        }
+
+        /* SEÇÃO HERO (HOME) */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: radial-gradient(circle, #1a1a1a 0%, #000000 100%);
+        }
+
+        .hero h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 3.5rem;
+            color: var(--dourado);
+            margin-bottom: 10px;
+        }
+
+        /* SEÇÕES GERAIS */
+        section { padding: 100px 10%; border-bottom: 1px solid #111; }
+        
+        .titulo-secao {
+            font-family: 'Cinzel', serif;
+            color: var(--dourado);
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+        }
+
+        #quem-somos p {
+            line-height: 2;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+
+        /* CONTATO */
+        .contato-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 40px;
+            text-align: center;
+        }
+
+        .contato-box h3 { color: var(--dourado); font-family: 'Cinzel', serif; }
+        
+        .btn-acao {
+            border: 1px solid var(--dourado);
+            color: var(--dourado);
+            padding: 15px 40px;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-weight: bold;
+            transition: 0.4s;
+        }
+
+        .btn-acao:hover { background: var(--dourado); color: var(--preto); }
+
+        footer { text-align: center; padding: 40px; color: #444; font-size: 0.8rem; }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="logo"><img src="logo.png" alt="Jurema Azevedo"></div>
+    <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#quem-somos">Quem Somos</a>
+        <a href="produtos.html">Produtos</a>
+        <a href="#contato">Contato</a>
+    </div>
+</nav>
+
+<section id="home" class="hero">
+    <h1>Jurema Azevedo</h1>
+    <p style="letter-spacing: 5px; color: var(--dourado-claro);">ACESSÓRIOS DE LUXO</p>
+    <br><br>
+    <a href="produtos.html" class="btn-acao">Ver Coleção Exclusiva</a>
+</section>
+
+<section id="quem-somos">
+    <h2 class="titulo-secao">Quem Somos</h2>
+    <p>A Jurema Azevedo Acessórios de Luxo é sinônimo de sofisticação e exclusividade. Nascida para atender clientes que não abrem mão da elegância, nossa curadoria foca em peças que utilizam os melhores materiais, design atemporal com todas as peças feitas artesanalmente.</p>
+    <p>Cada acessório conta uma história de brilho e distinção, selecionados criteriosamente para garantir que você se destaque em qualquer ocasião.</p>
+</section>
+
+<section id="contato">
+    <h2 class="titulo-secao">Contato</h2>
+    <div class="contato-container">
+        <div class="contato-box">
+            <h3>WhatsApp</h3>
+            <p>Atendimento Imediato:</p>
+            <a href="https://wa.me/5511915202411" style="color: white; text-decoration: none;">(11) 91520-2411</a>
+        </div>
+        <div class="contato-box">
+            <h3>E-mail</h3>
+            <p>juremagoncalves63@gmail.com</p>
+        </div>
+        <div class="contato-box">
+            <h3>Siga-nos</h3>
+            <p>@juremaazevedoacessoriosdeluxo</p>
+        </div>
+    </div>
+</section>
+
+<footer>
+    &copy; 2026 Jurema Azevedo Acessórios de Luxo.
+</footer>
+
+</body>
+</html>

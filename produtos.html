@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Coleção | Jurema Azevedo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root { --preto: #000; --dourado: #D4AF37; --branco: #fff; }
+        body { background: var(--preto); color: var(--branco); font-family: 'Montserrat', sans-serif; margin: 0; padding-top: 100px; }
+        
+        nav {
+            background: #000; border-bottom: 1px solid var(--dourado);
+            padding: 15px 5%; position: fixed; width: 90%; top: 0; z-index: 1000;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .logo img { height: 50px; }
+        .nav-links a { color: var(--dourado); text-decoration: none; margin-left: 25px; font-size: 0.8rem; text-transform: uppercase; }
+
+        .barra-filtros { padding: 20px 5%; display: flex; justify-content: flex-end; align-items: center; gap: 10px; }
+        select { background: #000; color: var(--dourado); border: 1px solid var(--dourado); padding: 8px; border-radius: 0; }
+
+        .vitrine { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; padding: 20px 5%; }
+        
+        .card { background: #0a0a0a; border: 1px solid #222; padding: 20px; text-align: center; }
+        .img-principal { width: 70%; height: 500px; object-fit: cover; margin-bottom: 15px; }
+        
+        .thumbs { display: flex; justify-content: center; gap: 8px; margin-bottom: 15px; }
+        .thumb-img { width: 50px; height: 50px; cursor: pointer; border: 1px solid #333; opacity: 0.6; }
+        .thumb-img.active { border-color: var(--dourado); opacity: 1; }
+
+        .nome { font-family: 'Cinzel', serif; color: var(--dourado); margin: 10px 0; font-size: 1.2rem; }
+        .preco { font-size: 1.3rem; margin-bottom: 20px; display: block; }
+        
+        .btn-comprar {
+            border: 1px solid var(--dourado); color: var(--dourado);
+            padding: 12px 20px; text-decoration: none; font-weight: bold; text-transform: uppercase; font-size: 0.8rem;
+        }
+        .btn-comprar:hover { background: var(--dourado); color: #000; }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="logo"><a href="index.html"><img src="logo.png"></a></div>
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="index.html#quem-somos">Quem Somos</a>
+        <a href="produtos.html">Produtos</a>
+        <a href="index.html#contato">Contato</a>
+    </div>
+</nav>
+
+<div class="barra-filtros">
+    <label>Ordenar:</label>
+    <select id="sortSelect" onchange="ordenar()">
+        <option value="relevancia">Relevância</option>
+        <option value="crescente">Menor Preço</option>
+        <option value="decrescente">Maior Preço</option>
+    </select>
+</div>
+
+<div class="vitrine" id="vitrine">
+    <div class="card" data-price="100.00" data-rel="1">
+        <img src="produto1_imagem1.png" class="img-principal" id="view1">
+        <div class="thumbs">
+            <img src="produto1_imagem1.png" class="thumb-img active" onclick="trocar(this, 'view1')">
+            <img src="produto1_imagem2.png" class="thumb-img" onclick="trocar(this, 'view1')">
+            <img src="produto1_imagem3.png" class="thumb-img" onclick="trocar(this, 'view1')">
+        </div>
+        <h3 class="nome">Colar Sereia</h3>
+        <span class="preco">R$ 100,00</span>
+        <a href="https://wa.me/5511915202411?text=Olá, quero o colar Sereia" class="btn-comprar">Comprar via WhatsApp</a>
+    </div>
+
+    <div class="card" data-price="150.00" data-rel="2">
+        <img src="produto2_imagem1.png" class="img-principal" id="view2">
+        <div class="thumbs">
+            <img src="produto2_imagem1.png" class="thumb-img active" onclick="trocar(this, 'view2')">
+            <img src="produto2_imagem2.png" class="thumb-img" onclick="trocar(this, 'view2')">
+        </div>
+        <h3 class="nome">Conjunto colar e brincos </h3>
+        <span class="preco">R$ 150,00</span>
+        <a href="https://wa.me/5511915202411?text=Olá, quero o conjunto colar e brincos" class="btn-comprar">Comprar via WhatsApp</a>
+    </div>
+</div>
+
+<script>
+    function trocar(el, viewId) {
+        document.getElementById(viewId).src = el.src;
+        let p = el.parentElement.children;
+        for(let t of p) t.classList.remove('active');
+        el.classList.add('active');
+    }
+
+    function ordenar() {
+        let list = document.getElementById('vitrine');
+        let cards = Array.from(list.getElementsByClassName('card'));
+        let modo = document.getElementById('sortSelect').value;
+
+        cards.sort((a, b) => {
+            let pA = parseFloat(a.getAttribute('data-price'));
+            let pB = parseFloat(b.getAttribute('data-price'));
+            let rA = parseInt(a.getAttribute('data-rel'));
+            let rB = parseInt(b.getAttribute('data-rel'));
+
+            if(modo === 'crescente') return pA - pB;
+            if(modo === 'decrescente') return pB - pA;
+            return rA - rB;
+        });
+
+        list.innerHTML = "";
+        cards.forEach(c => list.appendChild(c));
+    }
+</script>
+</body>
+</html>
