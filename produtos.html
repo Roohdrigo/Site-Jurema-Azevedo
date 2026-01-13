@@ -5,43 +5,149 @@
     <title>Coleção | Jurema Azevedo</title>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        :root { --preto: #000; --dourado: #D4AF37; --branco: #fff; }
-        body { background: var(--preto); color: var(--branco); font-family: 'Montserrat', sans-serif; margin: 0; padding-top: 100px; }
-        
-        nav {
-            background: #000; border-bottom: 1px solid var(--dourado);
-            padding: 15px 5%; position: fixed; width: 90%; top: 0; z-index: 1000;
-            display: flex; justify-content: space-between; align-items: center;
+        :root { 
+            --preto: #000; 
+            --preto-card: #0a0a0a;
+            --dourado: #D4AF37; 
+            --dourado-claro: #F1D592;
+            --branco: #fff; 
+            --cinza-claro: #cccccc;
         }
-        .logo img { height: 50px; }
-        .nav-links a { color: var(--dourado); text-decoration: none; margin-left: 25px; font-size: 0.8rem; text-transform: uppercase; }
-
-        .barra-filtros { padding: 20px 5%; display: flex; justify-content: flex-end; align-items: center; gap: 10px; }
-        select { background: #000; color: var(--dourado); border: 1px solid var(--dourado); padding: 8px; border-radius: 0; }
-
-        .vitrine { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; padding: 20px 5%; }
         
-        .card { background: #0a0a0a; border: 1px solid #222; padding: 20px; text-align: center; }
-        .img-principal { width: 70%; height: 500px; object-fit: cover; margin-bottom: 15px; }
+        body { 
+            background: var(--preto); 
+            color: var(--branco); 
+            font-family: 'Montserrat', sans-serif; 
+            margin: 0; 
+            padding-top: 100px; 
+        }
         
-        .thumbs { display: flex; justify-content: center; gap: 8px; margin-bottom: 15px; }
-        .thumb-img { width: 50px; height: 50px; cursor: pointer; border: 1px solid #333; opacity: 0.6; }
+        /* NAVBAR */
+        nav {
+            background: rgba(0,0,0,0.95); 
+            border-bottom: 1px solid var(--dourado);
+            padding: 15px 5%; 
+            position: fixed; 
+            width: 90%; 
+            top: 0; 
+            z-index: 1000;
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center;
+        }
+        .logo img { height: 60px; }
+        .nav-links a { 
+            color: var(--dourado); 
+            text-decoration: none; 
+            margin-left: 25px; 
+            font-size: 0.8rem; 
+            text-transform: uppercase; 
+            letter-spacing: 1px;
+        }
+
+        /* FILTROS */
+        .barra-filtros { 
+            padding: 20px 5%; 
+            display: flex; 
+            justify-content: flex-end; 
+            align-items: center; 
+            gap: 10px; 
+        }
+        select { 
+            background: #000; 
+            color: var(--dourado); 
+            border: 1px solid var(--dourado); 
+            padding: 8px; 
+            font-family: 'Montserrat';
+        }
+
+        /* VITRINE */
+        .vitrine { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+            gap: 40px; 
+            padding: 20px 5%; 
+        }
+        
+        .card { 
+            background: var(--preto-card); 
+            border: 1px solid #1a1a1a; 
+            padding: 25px; 
+            text-align: center; 
+            transition: 0.3s;
+        }
+        .card:hover { border-color: var(--dourado); }
+        
+        .img-principal { 
+            width: 50%; 
+            height: 500px; 
+            object-fit: cover; 
+            margin-bottom: 15px; 
+        }
+        
+        .thumbs { 
+            display: flex; 
+            justify-content: center; 
+            gap: 8px; 
+            margin-bottom: 20px; 
+        }
+        .thumb-img { 
+            width: 55px; 
+            height: 55px; 
+            cursor: pointer; 
+            border: 1px solid #333; 
+            opacity: 0.5; 
+            transition: 0.3s;
+        }
         .thumb-img.active { border-color: var(--dourado); opacity: 1; }
 
-        .nome { font-family: 'Cinzel', serif; color: var(--dourado); margin: 10px 0; font-size: 1.2rem; }
-        .preco { font-size: 1.3rem; margin-bottom: 20px; display: block; }
+        .nome { 
+            font-family: 'Cinzel', serif; 
+            color: var(--dourado); 
+            margin: 10px 0 5px 0; 
+            font-size: 1.3rem; 
+            letter-spacing: 1px;
+        }
+        
+        .preco { 
+            font-size: 1.2rem; 
+            font-weight: 600; 
+            color: var(--branco);
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        .descricao {
+            font-size: 0.9rem;
+            color: var(--cinza-claro);
+            line-height: 1.5;
+            margin-bottom: 25px;
+            min-height: 60px; /* Mantém o alinhamento dos botões */
+            padding: 0 10px;
+        }
         
         .btn-comprar {
-            border: 1px solid var(--dourado); color: var(--dourado);
-            padding: 12px 20px; text-decoration: none; font-weight: bold; text-transform: uppercase; font-size: 0.8rem;
+            border: 1px solid var(--dourado); 
+            color: var(--dourado);
+            padding: 14px 25px; 
+            text-decoration: none; 
+            font-weight: bold; 
+            text-transform: uppercase; 
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            display: inline-block;
+            transition: 0.4s;
         }
-        .btn-comprar:hover { background: var(--dourado); color: #000; }
+        .btn-comprar:hover { 
+            background: var(--dourado); 
+            color: #000; 
+        }
     </style>
 </head>
 <body>
 
 <nav>
-    <div class="logo"><a href="index.html"><img src="logo.png"></a></div>
+    <div class="logo"><a href="index.html"><img src="logo.png" alt="Logo Jurema Azevedo"></a></div>
     <div class="nav-links">
         <a href="index.html">Home</a>
         <a href="index.html#quem-somos">Quem Somos</a>
@@ -51,7 +157,7 @@
 </nav>
 
 <div class="barra-filtros">
-    <label>Ordenar:</label>
+    <label style="color: var(--dourado); font-size: 0.8rem; text-transform: uppercase;">Ordenar por:</label>
     <select id="sortSelect" onchange="ordenar()">
         <option value="relevancia">Relevância</option>
         <option value="crescente">Menor Preço</option>
@@ -60,28 +166,65 @@
 </div>
 
 <div class="vitrine" id="vitrine">
-    <div class="card" data-price="100.00" data-rel="1">
+    
+    <div class="card" data-price="134.00" data-rel="1">
         <img src="produto1_imagem1.png" class="img-principal" id="view1">
         <div class="thumbs">
             <img src="produto1_imagem1.png" class="thumb-img active" onclick="trocar(this, 'view1')">
             <img src="produto1_imagem2.png" class="thumb-img" onclick="trocar(this, 'view1')">
             <img src="produto1_imagem3.png" class="thumb-img" onclick="trocar(this, 'view1')">
         </div>
-        <h3 class="nome">Colar Sereia</h3>
-        <span class="preco">R$ 100,00</span>
+        <h3 class="nome">Colar Mosaikón</h3>
+        <span class="preco">R$ 134,00</span>
+        <p class="descricao">Colar Mosaikón, elegante com design sofisticado e acabamento refinado.
+Acessório de luxo atemporal, ideal para valorizar o visual com elegância e personalidade. Modelo grande, corrente em banho dourado, contas em cerâmicas brancas e pingente em resina preto e branco com diâmetro 7cm. Comprimento do colar 48,5cm.</p>
         <a href="https://wa.me/5511915202411?text=Olá, quero o colar Sereia" class="btn-comprar">Comprar via WhatsApp</a>
     </div>
 
-    <div class="card" data-price="150.00" data-rel="2">
+    <div class="card" data-price="89.00" data-rel="2">
         <img src="produto2_imagem1.png" class="img-principal" id="view2">
         <div class="thumbs">
             <img src="produto2_imagem1.png" class="thumb-img active" onclick="trocar(this, 'view2')">
             <img src="produto2_imagem2.png" class="thumb-img" onclick="trocar(this, 'view2')">
+            <img src="produto2_imagem3.png" class="thumb-img" onclick="trocar(this, 'view2')">
         </div>
-        <h3 class="nome">Conjunto colar e brincos </h3>
-        <span class="preco">R$ 150,00</span>
-        <a href="https://wa.me/5511915202411?text=Olá, quero o conjunto colar e brincos" class="btn-comprar">Comprar via WhatsApp</a>
+        <h3 class="nome">Conjunto Aquários</h3>
+        <span class="preco">R$ 89,00</span>
+        <p class="descricao">Conjunto Aquários, elegante com design sofisticado e acabamento refinado.
+Acessório de luxo atemporal, ideal para valorizar o visual com elegância e personalidade. Modelo médio, corrente em banho dourado, pedras naturais de tonalidades creme e pingente em dourado com LxA 35x68mm e extensor 8cm. Comprimento do colar 35cm.</p>
+        <a href="https://wa.me/5511915202411?text=Olá, quero o colar Sereia" class="btn-comprar">Comprar via WhatsApp</a>
     </div>
+
+    <div class="card" data-price="152.00" data-rel="3">
+        <img src="produto3_imagem1.png" class="img-principal" id="view3">
+        <div class="thumbs">
+            <img src="produto3_imagem1.png" class="thumb-img active" onclick="trocar(this, 'view3')">
+            <img src="produto3_imagem2.png" class="thumb-img" onclick="trocar(this, 'view3')">
+            <img src="produto3_imagem3.png" class="thumb-img" onclick="trocar(this, 'view3')">
+            <img src="produto3_imagem4.png" class="thumb-img" onclick="trocar(this, 'view3')">
+            <img src="produto3_imagem5.png" class="thumb-img" onclick="trocar(this, 'view3')">
+        </div>
+        <h3 class="nome">Conjunto Buzios</h3>
+        <span class="preco">R$ 152,00</span>
+        <p class="descricao">Conjunto Búzios, elegante com design sofisticado e acabamento refinado.
+Acessório de luxo atemporal, ideal para valorizar o visual com elegância e personalidade. Modelo colar médio, conjunto em banho dourado, pingente do colar com  LxA 4x6mm e extensor 8cm. Comprimento do colar 40cm. Brincos grandes com LxA 3,5x cm.</p>
+        <a href="https://wa.me/5511915202411?text=Olá, quero o colar Sereia" class="btn-comprar">Comprar via WhatsApp</a>
+    </div>
+    
+    <div class="card" data-price="71.00" data-rel="4">
+        <img src="produto4_imagem1.png" class="img-principal" id="view4">
+        <div class="thumbs">
+            <img src="produto4_imagem1.png" class="thumb-img active" onclick="trocar(this, 'view4')">
+            <img src="produto4_imagem2.png" class="thumb-img" onclick="trocar(this, 'view4')">
+            <img src="produto4_imagem3.png" class="thumb-img" onclick="trocar(this, 'view4')">        
+        </div>
+        <h3 class="nome">Colar Divindade</h3>
+        <span class="preco">R$ 71,00</span>
+        <p class="descricao">Colar Divindade, elegante com design sofisticado e acabamento refinado.
+Acessório de luxo atemporal, ideal para valorizar o visual com elegância e personalidade. Modelo curto, corrente em resinas pretas, entremeios dourado, pingente em dourado com LxA 3,5x4cm e extensor 8cm. Comprimento do colar 28cm.</p>
+        <a href="https://wa.me/5511915202411?text=Olá, quero o colar Sereia" class="btn-comprar">Comprar via WhatsApp</a>
+    </div>
+
 </div>
 
 <script>
