@@ -35,7 +35,7 @@
             align-items: center;
         }
 
-        .logo img { height: 80px; }
+        .logo-nav img { height: 50px; } /* Logo menor no menu */
 
         .nav-links a {
             color: var(--dourado);
@@ -47,7 +47,7 @@
             font-weight: 600;
         }
 
-        /* SEÇÃO HERO (HOME) */
+        /* SEÇÃO HERO (Ajustada para a Logo Central) */
         .hero {
             height: 100vh;
             display: flex;
@@ -56,13 +56,22 @@
             align-items: center;
             text-align: center;
             background: radial-gradient(circle, #1a1a1a 0%, #000000 100%);
+            padding: 0 20px;
+        }
+
+        .logo-central {
+            width: 250px; /* Tamanho da logo no centro */
+            height: auto;
+            margin-bottom: 20px; /* Espaço entre a logo e o nome */
+            filter: drop-shadow(0px 0px 10px rgba(212, 175, 55, 0.3)); /* Brilho sutil dourado */
         }
 
         .hero h1 {
             font-family: 'Cinzel', serif;
             font-size: 3.5rem;
             color: var(--dourado);
-            margin-bottom: 10px;
+            margin: 0;
+            letter-spacing: 8px;
         }
 
         /* SEÇÕES GERAIS */
@@ -103,17 +112,24 @@
             text-transform: uppercase;
             font-weight: bold;
             transition: 0.4s;
+            margin-top: 30px;
         }
 
         .btn-acao:hover { background: var(--dourado); color: var(--preto); }
 
         footer { text-align: center; padding: 40px; color: #444; font-size: 0.8rem; }
+
+        /* Responsividade para celulares */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .logo-central { width: 180px; }
+        }
     </style>
 </head>
 <body>
 
 <nav>
-    <div class="logo"><img src="logo.png" alt="Jurema Azevedo"></div>
+    <div class="logo-nav"><img src="logo.png" alt="Logo Jurema Azevedo"></div>
     <div class="nav-links">
         <a href="#home">Home</a>
         <a href="#quem-somos">Quem Somos</a>
@@ -123,16 +139,18 @@
 </nav>
 
 <section id="home" class="hero">
-    <h1>Jurema Azevedo</h1>
-    <p style="letter-spacing: 5px; color: var(--dourado-claro);">ACESSÓRIOS DE LUXO</p>
-    <br><br>
+    <img src="logo.png" alt="Jurema Azevedo Luxo" class="logo-central">
+    
+    <h1>JUREMA AZEVEDO</h1>
+    <p style="letter-spacing: 5px; color: var(--dourado-claro); margin-top: 10px;">ACESSÓRIOS DE LUXO</p>
+    
     <a href="produtos.html" class="btn-acao">Ver Coleção Exclusiva</a>
 </section>
 
 <section id="quem-somos">
     <h2 class="titulo-secao">Quem Somos</h2>
-    <p>A Jurema Azevedo Acessórios de Luxo é sinônimo de sofisticação e exclusividade. Nascida para atender clientes que não abrem mão da elegância, nossa curadoria foca em peças que utilizam os melhores materiais, design atemporal com todas as peças feitas artesanalmente.</p>
-    <p>Cada acessório conta uma história de brilho e distinção, selecionados criteriosamente para garantir que você se destaque em qualquer ocasião.</p>
+    <p>Jurema Azevedo Acessórios de Luxo é sinônimo de sofisticação e exclusividade. Nascida para atender clientes que não abrem mão da elegância e qualidade, nossa curadoria foca em peças que utilizam os melhores materiais, design atemporal com todas as peças feitas artesanalmente e produzidas com banho brasileiro dourado ou prateado em tratamento quimico especial (Zamac) e verniz (Cataforético) para evitar escurecimento e proteger contra suor e umidade.</p>
+    <p>Cada acessório conta uma história de brilho, alta durabilidade e requinte, selecionados criteriosamente para garantir que você se destaque em qualquer ocasião.</p>
 </section>
 
 <section id="contato">
@@ -159,4 +177,5 @@
 </footer>
 
 </body>
+
 </html>
